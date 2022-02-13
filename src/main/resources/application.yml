@@ -1,0 +1,40 @@
+spring:
+  profiles:
+    active: "dev"
+
+server:
+   port: 8081
+
+#Dev configuration
+--- 
+spring:
+ config:
+  activate:
+   on-profile: dev
+  
+logging:
+ level:
+    ROOT: DEBUG
+    
+providers:
+  source1: http://localhost:8083/v1/service/test1
+  source2: http://localhost:8083/v1/service/test2
+  source3: http://localhost:8083/v1/service/test3
+
+#Producation configuration
+---
+spring: 
+ config: 
+  activate:
+   on-profile: prod
+  
+logging:
+  level:
+    ROOT: ERROR
+
+providers:
+  
+  source4: http://localhost:8083/v1/service/test4
+  source5: http://localhost:8083/v1/service/test5
+  source6: http://localhost:8083/v1/service/test6
+
