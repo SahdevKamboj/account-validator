@@ -11,7 +11,7 @@ Use the following maven command to run this project.
 ### Getting Started
 ##  Get the source code
 Make a directory for account validator. Clone or download and extract the account validator in that directory.
-git clone https://github.com/SahdevKamboj/accountvalidator.git
+git clone https://github.com/SahdevKamboj/account-validator.git
 
 cd account-validator
 
