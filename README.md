@@ -1,8 +1,8 @@
 ## Account Validator Service
 
-POST - /v2/validator
+POST - /v1/validator
 
-URL             - /v2/validator
+URL             - /v1/validator
 HTTP Operation  - POST
 Functionality   - Account Validator is a spring boot rest service. It validates the account based on the account number.
 
