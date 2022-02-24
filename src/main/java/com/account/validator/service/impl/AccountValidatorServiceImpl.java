@@ -63,23 +63,15 @@ public class AccountValidatorServiceImpl implements AccountValidatorService {
 			.onErrorResume(e -> {
 				logger.error(" {} service is not working due to [{}] issue, service url is : {} ",pRequest.getSource(), e.getMessage(), pRequest.getSourceUrl());
 				return Mono.empty();
-				});
-
-		return responseDTO.doOnSuccess(p -> setSource(p, pRequest.getSource()));
-
-	}
-
-	/**
-	 * set source value into response
-	 * 
-	 * @param pResponseDTO
-	 * @param source
-	 */
-	private void setSource(IndividualSourceResponse pResponseDTO, String source) {
-
-		if (null != pResponseDTO) {
-			pResponseDTO.setSource(source);
+				}).map(p -> new IndividualSourceResponse(p.getIsValid(), pRequest.getSource()));
+		
+		if(logger.isDebugEnabled()) {
+			logger.debug("Mono<IndividualSourceResponse>({})", responseDTO);
 		}
+
+		return responseDTO;
+
 	}
+
 
 }

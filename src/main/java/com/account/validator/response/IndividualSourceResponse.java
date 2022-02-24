@@ -17,6 +17,16 @@ public class IndividualSourceResponse implements Serializable {
 
 	@JsonProperty("source")
 	private String source;
+	
+	
+
+	public IndividualSourceResponse() {
+	}
+
+	public IndividualSourceResponse(Boolean isValid, String source) {
+		this.isValid = isValid;
+		this.source = source;
+	}
 
 	public Boolean getIsValid() {
 		return isValid;
